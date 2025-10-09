@@ -3,44 +3,179 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
+
   <title>Mythos Liquidity Capital</title>
-  <meta name="description" content="Systematic BTC/ETH/SOL with an options income engine that helps fund downside protection. Private, by introduction only." />
+  <meta name="description" content="Simple, disciplined crypto exposure to BTC/ETH/SOL with an options engine that helps fund downside protection. Private, by introduction only." />
+
+  <!-- Canonical & Social -->
   <link rel="canonical" href="https://www.mythosliquidity.com/">
   <meta property="og:url" content="https://www.mythosliquidity.com/">
-  <meta property="og:title" content="Mythos Liquidity Capital" />
-  <meta property="og:description" content="Systematic BTC/ETH/SOL + delta‑hedged equity options. Private, by introduction only." />
-  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Mythos Liquidity Capital">
+  <meta property="og:description" content="Simple, disciplined crypto exposure to BTC/ETH/SOL with an options engine that helps fund downside protection. Private, by introduction only.">
+  <!-- Optional if you add a preview image -->
+  <!-- <meta property="og:image" content="https://www.mythosliquidity.com/assets/preview.jpg"> -->
+  <meta property="og:type" content="website">
   <meta name="theme-color" content="#0b0c10" />
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='12' fill='%230b0c10'/><text x='50' y='60' font-size='48' text-anchor='middle' fill='%23ffffff' font-family='Arial,Helvetica,sans-serif'>M</text></svg>">
+
+  <link rel="icon" href="/assets/mythos-logo-light.png" type="image/png">
+
   <style>
-    :root{--bg:#0b0c10;--ink:#f9fafb;--muted:#9ca3af;--line:#1f2937}
+    :root{
+      /* Brand */
+      --primary:#67AEAE;   /* Mythos teal */
+      --secondary:#AD92D4; /* soft purple */
+      --tertiary:#D79589;  /* warm coral */
+
+      /* Surface / text */
+      --bg:#0b0c10;
+      --panel:rgba(17,24,39,.35);
+      --ink:#f9fafb;
+      --muted:#9ca3af;
+      --line:#1f2937;
+
+      /* Layout */
+      --maxw:820px;
+      --radius:20px;
+    }
     *{box-sizing:border-box}
     html,body{height:100%}
-    body{margin:0;background:radial-gradient(1200px 800px at 20% -10%, #111827 10%, #0b0c10 60%);color:var(--ink);font:16px/1.6 system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,"Helvetica Neue",Arial}
+    body{
+      margin:0;
+      background:
+        radial-gradient(1200px 800px at 15% -10%, #111827 10%, #0b0c10 60%),
+        linear-gradient(135deg, rgba(103,174,174,.08), rgba(173,146,212,.06), rgba(215,149,137,.04));
+      color:var(--ink);
+      font:16px/1.6 system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,"Helvetica Neue",Arial;
+    }
+
     .wrap{min-height:100%;display:grid;place-items:center;padding:24px}
-    .card{max-width:760px;width:100%;text-align:center;padding:56px 28px;border:1px solid var(--line);border-radius:20px;background:rgba(17,24,39,.35);backdrop-filter:saturate(160%) blur(6px)}
-    .logo{width:48px;height:48px;border-radius:12px;background:#111;display:grid;place-items:center;margin:0 auto 14px;color:#fff;font-weight:900}
-    h1{font-size:clamp(34px,6vw,56px);line-height:1.08;margin:8px 0 10px;letter-spacing:-.01em}
-    p.lead{font-size:clamp(16px,2.4vw,20px);color:var(--muted);max-width:640px;margin:0 auto}
-    .cta{display:flex;flex-wrap:wrap;gap:12px;justify-content:center;margin-top:22px}
-    .btn{display:inline-flex;align-items:center;justify-content:center;padding:12px 18px;border-radius:12px;border:1px solid #fff;color:#0b0c10;background:#fff;font-weight:700}
-    .btn.alt{background:transparent;color:#f9fafb;border-color:#4b5563}
+    .card{
+      width:100%;
+      max-width:var(--maxw);
+      text-align:center;
+      padding:40px 20px;
+      border:1px solid var(--line);
+      border-radius:var(--radius);
+      background:var(--panel);
+      backdrop-filter:saturate(160%) blur(6px);
+    }
+
+    /* Logo row */
+    .brand{
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      gap:12px;
+      margin-bottom:8px;
+    }
+    .brand img{
+      height:28px; /* small on mobile */
+      width:auto;
+      display:block;
+    }
+    .brand span{
+      font-weight:800;
+      letter-spacing:.2px;
+    }
+
+    h1{
+      font-size:clamp(28px,6vw,44px);
+      line-height:1.15;
+      margin:10px 0 8px;
+      letter-spacing:-.01em;
+    }
+    .lead{
+      font-size:clamp(15px,2.6vw,19px);
+      color:var(--muted);
+      max-width:680px;
+      margin:0 auto;
+    }
+
+    /* concise value line under lead */
+    .value-pills{
+      display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin:16px 0 0;
+    }
+    .pill{
+      border:1px solid rgba(255,255,255,.18);
+      border-radius:999px;
+      padding:6px 10px;
+      font-size:.9rem;
+      color:#e5f3f3;
+      background:rgba(103,174,174,.10);
+    }
+
+    .cta{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin-top:18px}
+    .btn{
+      display:inline-flex;align-items:center;justify-content:center;
+      padding:8px 12px;               /* smaller CTA */
+      border-radius:12px;border:1px solid var(--primary);
+      background:var(--primary);color:#082a2a;font-weight:700;
+      box-shadow:0 0 0 1px rgba(0,0,0,.02) inset;
+    }
+    .btn:hover{filter:brightness(1.02)}
+    .btn.alt{background:transparent;color:var(--ink);border-color:#4b5563}
+
     footer{margin-top:18px;color:#9ca3af;font-size:.85rem}
-    a{color:inherit}
+
+    /* Contact section (optional anchor jump) */
+    .contact{
+      margin-top:28px;
+      display:grid;
+      grid-template-columns:1fr;
+      gap:14px;
+    }
+    .contact a{color:var(--ink)}
+    .contact .email{
+      color:var(--primary);
+      font-weight:700;
+    }
+
+    /* Bigger logo & tighter layout on wider screens */
+    @media (min-width:520px){
+      .card{padding:56px 40px}
+      .brand img{height:36px}
+    }
+    @media (min-width:860px){
+      .brand img{height:40px}
+    }
   </style>
 </head>
 <body>
   <main class="wrap">
     <section class="card" aria-label="Intro">
-      <div class="logo" aria-hidden="true">M</div>
-      <h1>Simple, disciplined crypto exposure—built for downside defense.</h1>
-      <p class="lead">We run a low‑turnover, systematic allocation in <strong>BTC/ETH/SOL</strong>, paired with a delta‑hedged options engine on crypto‑linked equities that helps pay for long‑dated protection. Private, by introduction only.</p>
+      <div class="brand">
+        <!-- Use the light logo on dark background -->
+        <img src="/assets/mythos-logo-light.png" alt="Mythos Liquidity logo">
+        <span>mythos</span>
+      </div>
+
+      <h1>We provide a clever way to have Bitcoin exposure.</h1>
+
+      <p class="lead">
+        We’re a systematic, low-to-mid frequency trading firm allocating to the top three crypto assets
+        <strong>BTC/ETH/SOL</strong> with disciplined downside defense.
+        A delta-hedged options engine on crypto-linked equities helps fund long-dated protection.
+      </p>
+
+      <div class="value-pills" aria-label="Highlights">
+        <div class="pill">Systematic core</div>
+        <div class="pill">Options income + hedges</div>
+        <div class="pill">Private, by introduction</div>
+      </div>
+
       <div class="cta">
         <a class="btn" href="mailto:contact@mythosliquidity.com?subject=Introduction%20request">Request an introduction</a>
-        <!-- Optional: add your one‑pager and uncomment
-        <a class="btn alt" href="/assets/one-pager.pdf">One‑pager</a> -->
       </div>
-      <footer>For professional/qualified investors only. Nothing herein is an offer or solicitation. © <span id="y"></span> Mythos Liquidity Capital.</footer>
+
+      <div class="contact" id="contact">
+        <div>Prefer email? <a class="email" href="mailto:contact@mythosliquidity.com">contact@mythosliquidity.com</a></div>
+      </div>
+
+      <footer>
+        We only partner with long-term, values-aligned investors who understand the process.
+        For professional/qualified investors only. Nothing herein is an offer or solicitation.
+        © <span id="y"></span> Mythos Liquidity Capital.
+      </footer>
     </section>
   </main>
   <script>document.getElementById('y').textContent=new Date().getFullYear()</script>
