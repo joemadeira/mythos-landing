@@ -6,37 +6,30 @@
 
   <title>Mythos Liquidity Capital</title>
   <meta name="description" content="A disciplined, systematic way to access digital-asset alpha." />
-
-  <!-- Canonical & Social -->
   <link rel="canonical" href="https://www.mythosliquidity.com/">
   <meta property="og:url" content="https://www.mythosliquidity.com/">
   <meta property="og:title" content="Mythos Liquidity Capital">
   <meta property="og:description" content="Simple, disciplined crypto exposure to BTC/ETH/SOL with an options engine that helps fund downside protection. Private, by introduction only.">
-  <!-- Optional if you add a preview image -->
-  <!-- <meta property="og:image" content="https://www.mythosliquidity.com/assets/preview.jpg"> -->
   <meta property="og:type" content="website">
   <meta name="theme-color" content="#0b0c10" />
-
   <link rel="icon" href="/assets/mythos-logo-light.png" type="image/png">
 
   <style>
     :root{
-      /* Brand */
       --primary:#67AEAE;   /* Mythos teal */
       --secondary:#AD92D4; /* soft purple */
       --tertiary:#D79589;  /* warm coral */
 
-      /* Surface / text */
       --bg:#0b0c10;
-      --panel:rgba(17,24,39,.35);
+      --panel:#0f172a;     /* SOLID card color */
       --ink:#f9fafb;
       --muted:#9ca3af;
-      --line:#1f2937;
+      --line:rgba(255,255,255,.08);
 
-      /* Layout */
       --maxw:820px;
-      --radius:20px;
+      --radius:22px;
     }
+
     *{box-sizing:border-box}
     html,body{height:100%}
     body{
@@ -45,98 +38,93 @@
         radial-gradient(1200px 800px at 15% -10%, #111827 10%, #0b0c10 60%),
         linear-gradient(135deg, rgba(103,174,174,.08), rgba(173,146,212,.06), rgba(215,149,137,.04));
       color:var(--ink);
-      font:16px/1.6 system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,"Helvetica Neue",Arial;
+      font:16px/1.7 system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,"Helvetica Neue",Arial;
     }
 
-    .wrap{min-height:100%;display:grid;place-items:center;padding:24px}
+    .wrap{
+      min-height:100%;
+      display:grid;
+      place-items:center;
+      padding:32px;                    /* more outer breathing room */
+    }
+
     .card{
       width:100%;
       max-width:var(--maxw);
       text-align:center;
-      padding:40px 20px;
+      padding:64px 28px;               /* more inner padding */
       border:1px solid var(--line);
       border-radius:var(--radius);
-      background:var(--panel);
-      backdrop-filter:saturate(160%) blur(6px);
+      background:var(--panel);         /* now solid */
+      box-shadow:0 6px 30px rgba(0,0,0,.35);
     }
 
-    /* Logo row */
+    /* Brand row */
     .brand{
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      gap:12px;
-      margin-bottom:8px;
+      display:flex; align-items:center; justify-content:center;
+      gap:14px; margin-bottom:6px;
     }
     .brand img{
-      height:28px; /* small on mobile */
-      width:auto;
-      display:block;
+      height:44px;                     /* bigger logo on mobile */
+      width:auto; display:block;
     }
-    .brand span{
-      font-weight:800;
-      letter-spacing:.2px;
-    }
+    .brand span{font-weight:800; letter-spacing:.2px}
 
     h1{
-      font-size:clamp(28px,6vw,44px);
-      line-height:1.15;
-      margin:10px 0 8px;
+      font-size:clamp(30px,6.2vw,46px);
+      line-height:1.18;
+      margin:16px 0 14px;              /* more space above/below */
       letter-spacing:-.01em;
     }
+
     .lead{
-      font-size:clamp(15px,2.6vw,19px);
+      font-size:clamp(16px,2.6vw,20px);
       color:var(--muted);
-      max-width:680px;
-      margin:0 auto;
+      max-width:720px;
+      margin:8px auto 0;               /* extra top gap */
     }
 
-    /* concise value line under lead */
     .value-pills{
-      display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin:16px 0 0;
+      display:flex; flex-wrap:wrap; gap:10px; justify-content:center;
+      margin:22px 0 0;                 /* spaced from paragraph */
     }
     .pill{
       border:1px solid rgba(255,255,255,.18);
       border-radius:999px;
-      padding:6px 10px;
-      font-size:.9rem;
+      padding:8px 12px;
+      font-size:.95rem;
       color:#e5f3f3;
-      background:rgba(103,174,174,.10);
+      background:rgba(103,174,174,.12);
     }
 
-    .cta{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin-top:18px}
+    .cta{
+      display:flex; flex-wrap:wrap; gap:12px; justify-content:center;
+      margin-top:26px;                 /* pushed down a bit */
+    }
     .btn{
-      display:inline-flex;align-items:center;justify-content:center;
-      padding:8px 12px;               /* smaller CTA */
-      border-radius:12px;border:1px solid var(--primary);
-      background:var(--primary);color:#082a2a;font-weight:700;
+      display:inline-flex; align-items:center; justify-content:center;
+      padding:8px 12px;                /* small CTA */
+      border-radius:12px;
+      border:1px solid var(--primary);
+      background:var(--primary);
+      color:#082a2a; font-weight:700;
       box-shadow:0 0 0 1px rgba(0,0,0,.02) inset;
     }
-    .btn:hover{filter:brightness(1.02)}
+    .btn:hover{filter:brightness(1.03)}
     .btn.alt{background:transparent;color:var(--ink);border-color:#4b5563}
 
-    footer{margin-top:18px;color:#9ca3af;font-size:.85rem}
-
-    /* Contact section (optional anchor jump) */
-    .contact{
-      margin-top:28px;
-      display:grid;
-      grid-template-columns:1fr;
-      gap:14px;
-    }
-    .contact a{color:var(--ink)}
-    .contact .email{
-      color:var(--primary);
-      font-weight:700;
+    footer{
+      margin-top:28px;                 /* more space before footer */
+      color:#9ca3af; font-size:.9rem;
     }
 
-    /* Bigger logo & tighter layout on wider screens */
+    /* Wider screens: even more room + larger logo */
     @media (min-width:520px){
-      .card{padding:56px 40px}
-      .brand img{height:36px}
+      .card{padding:80px 48px}
+      .brand img{height:56px}
     }
     @media (min-width:860px){
-      .brand img{height:40px}
+      .brand img{height:64px}
     }
   </style>
 </head>
@@ -144,15 +132,14 @@
   <main class="wrap">
     <section class="card" aria-label="Intro">
       <div class="brand">
-        <!-- Use the light logo on dark background -->
         <img src="/assets/mythos-logo-light.png" alt="Mythos Liquidity logo">
         <span></span>
       </div>
 
-      <h1>A disciplined, systematic way to access digital-asset alpha.</h1>
+      <h1>We provide a clever way to have Bitcoin exposure.</h1>
 
       <p class="lead">
-        Our systematic multi-asset trading program spanning BTC, ETH, and SOL is designed to capture directional momentum while maintaining strict downside control. Our approach blends quantitative precision with all-weather risk management, delivering consistent, absolute returns through changing market regimes.
+        Our systematic multi-asset trading program spanning BTC, ETH, and SOL is designed to capture directional momentum while maintaining strict downside control. Our approach blends quantitative precision with all-weather risk management.
       </p>
 
       <div class="value-pills" aria-label="Highlights">
