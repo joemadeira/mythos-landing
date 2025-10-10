@@ -21,7 +21,7 @@
       --tertiary:#D79589;  /* warm coral */
 
       --bg:#0b0c10;
-      --panel:#0f172a;     /* SOLID card color */
+      --panel:#0f172a;     
       --ink:#f9fafb;
       --muted:#9ca3af;
       --line:rgba(255,255,255,.08);
@@ -55,7 +55,9 @@
       padding:64px 28px;               /* more inner padding */
       border:1px solid var(--line);
       border-radius:var(--radius);
-      background:var(--panel);         /* now solid */
+      /* REVERT: non-solid (glass) background */
+      background:rgba(17,24,39,.35);
+      backdrop-filter:saturate(160%) blur(6px);
       box-shadow:0 6px 30px rgba(0,0,0,.35);
     }
 
